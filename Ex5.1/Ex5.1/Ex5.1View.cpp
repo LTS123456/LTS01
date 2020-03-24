@@ -85,7 +85,16 @@ void CEx51View::OnTimer(UINT_PTR nIDEvent)
 {
 	// TODO: 在此添加消息处理程序代码和/或调用默认值
 	CClientDC dc(this);
+	CRect clientRect;
+	GetClientRect(&clientRect);
 	int i = nIDEvent;
+	if (CR.top <= clientRect.top)
+	{
+		CR.left = clientRect.right / 2;
+		CR.top = clientRect.bottom / 2;
+		CR.right = clientRect.right / 2;
+		CR.bottom=clientRect.bottom / 2;
+	}
 	if (i == 0)
 	{
 		CR.left -= 10;
